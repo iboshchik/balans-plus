@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balans Plus — Buxgalteriya Xizmatlari</title>
+    <meta name="description" content="Kichik biznes va YaTTlar uchun professional buxgalteriya xizmatlari. Soliq hisobotlari, ish haqi hisobi, to'liq buxgalteriya yuritish.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0b152d;
+            --navy-light: #111d38;
+            --navy-card: #142041;
+            --emerald: #10b981;
+            --emerald-dark: #0a9468;
+            --emerald-glow: rgba(16, 185, 129, 0.15);
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--gray-300);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--emerald);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--emerald-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--emerald);
+            border: 2px solid var(--emerald);
+        }
+
+        .btn-outline:hover {
+            background: var(--emerald);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--emerald-glow);
+            color: var(--emerald);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-400);
+            max-width: 600px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(11, 21, 45, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+            padding: 12px 0;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--emerald), #059669);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--emerald);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--gray-300);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--emerald);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--emerald);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--emerald-glow);
+            color: var(--emerald);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .highlight {
+            color: var(--emerald);
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--gray-400);
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--emerald);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-card {
+            background: var(--navy-card);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius-lg);
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), transparent, rgba(16, 185, 129, 0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .card-header h3 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .card-badge {
+            background: var(--emerald-glow);
+            color: var(--emerald);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .card-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background: var(--navy-light);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .card-row:hover {
+            border-left: 3px solid var(--emerald);
+            padding-left: 15px;
+        }
+
+        .card-row-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-row-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--emerald-glow);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .card-row-label {
+            font-size: 0.9rem;
+            color: var(--gray-300);
+        }
+
+        .card-row-value {
+            font-weight: 700;
+            color: var(--emerald);
+            font-size: 0.95rem;
+        }
+
+        .card-row-value.positive {
+            color: var(--emerald);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--navy-card);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: var(--radius);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-badge.top-right {
+            top: -20px;
+            right: -20px;
+        }
+
+        .floating-badge.bottom-left {
+            bottom: -20px;
+            left: -20px;
+            animation-delay: 1.5s;
+        }
+
+        .floating-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--emerald-glow);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .floating-text strong {
+            display: block;
+            color: var(--white);
+            font-size: 0.85rem;
+        }
+
+        .floating-text small {
+            color: var(--gray-400);
+            font-size: 0.75rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--navy-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--emerald), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(16, 185, 129, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--emerald-glow);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--gray-400);
+            line-height: 1.7;
+        }
+
+        .service-features {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            color: var(--gray-300);
+        }
+
+        .service-feature .check {
+            color: var(--emerald);
+            font-weight: 700;
+        }
+
+        /* ===== WHY US ===== */
+        .why-us {
+            padding: 100px 0;
+            background: var(--navy-light);
+            position: relative;
+        }
+
+        .why-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+        }
+
+        .why-us-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .why-us-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 28px;
+            background: var(--navy-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+
+        .why-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--emerald-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 1.8rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            font-size: 0.92rem;
+            color: var(--gray-400);
+            line-height: 1.7;
+        }
+
+        /* ===== FORM ===== */
+        .form-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .form-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .form-info {
+            padding-top: 20px;
+        }
+
+        .form-info .section-title {
+            margin-bottom: 24px;
+        }
+
+        .form-info p {
+            margin-bottom: 32px;
+            color: var(--gray-400);
+            font-size: 1.05rem;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--emerald-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text strong {
+            display: block;
+            color: var(--white);
+            font-size: 0.92rem;
+            margin-bottom: 2px;
+        }
+
+        .contact-text span {
+            color: var(--gray-400);
+            font-size: 0.88rem;
+        }
+
+        .form-card {
+            background: var(--navy-card);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+
+        .form-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .form-card > p {
+            color: var(--gray-400);
+            font-size: 0.92rem;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-300);
+            margin-bottom: 8px;
+        }
+
+        .form-group label .required {
+            color: var(--emerald);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--navy-light);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            color: var(--white);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: var(--gray-500);
+        }
+
+        .form-control:focus {
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+        }
+
+        select.form-control {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-5-5h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 44px;
+            cursor: pointer;
+        }
+
+        select.form-control option {
+            background: var(--navy-card);
+            color: var(--white);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Honeypot — ko'rinmas */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            tab-index: -1;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: var(--gray-500);
+        }
+
+        /* Success message */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--emerald-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .form-success h4 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .form-success p {
+            color: var(--gray-400);
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy-light);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            font-size: 0.92rem;
+            color: var(--gray-400);
+            max-width: 320px;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col a {
+            font-size: 0.92rem;
+            color: var(--gray-400);
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--emerald);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--navy-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--emerald);
+            color: var(--navy);
+            border-color: var(--emerald);
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-visual {
+                max-width: 520px;
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(11, 21, 45, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            .header-cta-wrap {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-badge {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .form-card {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">B+</div>
+                Balans<span>Plus</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#xizmatlar">Xizmatlar</a>
+                <a href="#nega-biz">Nega biz?</a>
+                <a href="#ariza">Konsultatsiya</a>
+            </nav>
+
+            <div class="header-cta-wrap">
+                <a href="#ariza" class="btn btn-primary header-cta">Konsultatsiya olish</a>
+            </div>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menyuni ochish">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">✦ Professional buxgalteriya xizmatlari</div>
+                <h1 class="hero-title">
+                    Biznesingiz hisobini <br><span class="highlight">ishonchli qo'llarga</span> topshiring
+                </h1>
+                <p class="hero-description">
+                    Kichik biznes va YaTTlar uchun soliq hisobotlari, ish haqi hisobi va to'liq buxgalteriya 
+                    yuritish xizmatlari. Siz biznesingizga e'tibor bering — hisob-kitobni bizga qoldiring.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#ariza" class="btn btn-primary">Bepul konsultatsiya →</a>
+                    <a href="#xizmatlar" class="btn btn-outline">Xizmatlarni ko'rish</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Mamnun mijozlar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Yillik tajriba</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">O'z vaqtida topshirish</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="card-header">
+                        <h3>📊 Moliyaviy xulosa</h3>
+                        <span class="card-badge">Oktyabr 2026</span>
+                    </div>
+                    <div class="card-items">
+                        <div class="card-row">
+                            <div class="card-row-left">
+                                <div class="card-row-icon">📈</div>
+                                <span class="card-row-label">Daromad</span>
+                            </div>
+                            <span class="card-row-value positive">+48.2 mln</span>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-row-left">
+                                <div class="card-row-icon">📋</div>
+                                <span class="card-row-label">Soliq hisoboti</span>
+                            </div>
+                            <span class="card-row-value positive">✓ Topshirildi</span>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-row-left">
+                                <div class="card-row-icon">💰</div>
+                                <span class="card-row-label">Ish haqi fondi</span>
+                            </div>
+                            <span class="card-row-value">12.8 mln</span>
+                        </div>
+                        <div class="card-row">
+                            <div class="card-row-left">
+                                <div class="card-row-icon">📑</div>
+                                <span class="card-row-label">Hujjatlar soni</span>
+                            </div>
+                            <span class="card-row-value">342 ta</span>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge top-right">
+                        <div class="floating-icon">✅</div>
+                        <div class="floating-text">
+                            <strong>Hisobot tayyor</strong>
+                            <small>2 daqiqa oldin</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge bottom-left">
+                        <div class="floating-icon">🛡️</div>
+                        <div class="floating-text">
+                            <strong>Ma'lumotlar himoyada</strong>
+                            <small>256-bit shifrlash</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="xizmatlar">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-label">✦ Xizmatlarimiz</span>
+                <h2 class="section-title">Biznesga kerak barcha<br>buxgalteriya xizmatlari</h2>
+                <p class="section-subtitle">Har bir xizmat sizning biznesingiz ehtiyojlariga moslashtirilgan holda taqdim etiladi.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Soliq hisobotlari</h3>
+                    <p>Barcha turdagi soliq hisobotlarini o'z vaqtida va to'g'ri tayyorlab, soliq organlariga topshirish.</p>
+                    <div class="service-features">
+                        <div class="service-feature"><span class="check">✓</span> QQS hisoboti</div>
+                        <div class="service-feature"><span class="check">✓</span> Daromad solig'i</div>
+                        <div class="service-feature"><span class="check">✓</span> Yagona soliq to'lovi</div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Ish haqi hisobi</h3>
+                    <p>Xodimlar ish haqini hisoblash, INPS badallari, soliq ajratmalari va to'lov vedomostlari.</p>
+                    <div class="service-features">
+                        <div class="service-feature"><span class="check">✓</span> Oylik hisob-kitob</div>
+                        <div class="service-feature"><span class="check">✓</span> INPS hisoboti</div>
+                        <div class="service-feature"><span class="check">✓</span> Mehnat shartnomasi</div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>To'liq buxgalteriya</h3>
+                    <p>Biznesingizni A dan Z gacha buxgalteriya yuritish — hisobotlar, hujjatlar va tahlillar.</p>
+                    <div class="service-features">
+                        <div class="service-feature"><span class="check">✓</span> Moliyaviy hisobot</div>
+                        <div class="service-feature"><span class="check">✓</span> Balans varaqasi</div>
+                        <div class="service-feature"><span class="check">✓</span> Foyda-zarar hisobi</div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">📝</div>
+                    <h3>YaTT ro'yxatdan o'tkazish</h3>
+                    <p>Yakka tartibdagi tadbirkor sifatida ro'yxatdan o'tish jarayonini to'liq boshqarish.</p>
+                    <div class="service-features">
+                        <div class="service-feature"><span class="check">✓</span> Hujjatlar tayyorlash</div>
+                        <div class="service-feature"><span class="check">✓</span> Soliq rejimini tanlash</div>
+                        <div class="service-feature"><span class="check">✓</span> STIR olish</div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Soliq auditi</h3>
+                    <p>Soliq tekshiruvlariga tayyorgarlik ko'rish va mavjud buxgalteriyani tekshirish xizmati.</p>
+                    <div class="service-features">
+                        <div class="service-feature"><span class="check">✓</span> Ichki audit</div>
+                        <div class="service-feature"><span class="check">✓</span> Xatoliklarni aniqlash</div>
+                        <div class="service-feature"><span class="check">✓</span> Tavsiyalar</div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Konsalting xizmatlari</h3>
+                    <p>Soliq va moliyaviy masalalar bo'yicha professional maslahatlar va strategik rejalashtirish.</p>
+                    <div class="service-features">
+                        <div class="service-feature"><span class="check">✓</span> Soliq optimallashtirish</div>
+                        <div class="service-feature"><span class="check">✓</span> Moliyaviy tahlil</div>
+                        <div class="service-feature"><span class="check">✓</span> Biznes rejalashtirish</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="why-us" id="nega-biz">
+        <div class="container">
+            <div class="why-us-header">
+                <span class="section-label">✦ Nega aynan biz?</span>
+                <h2 class="section-title">Bizni tanlashingiz uchun<br>4 ta muhim sabab</h2>
+                <p class="section-subtitle">Yuzlab tadbirkorlar bizga ishonadi. Sababi oddiy — natija beruvchi sifatli xizmat.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">🛡️</div>
+                    <h3>Kafolat</h3>
+                    <p>Har bir hisobot va hujjat uchun to'liq mas'uliyat olamiz. Xato bo'lsa — biz javobgarmiz.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">⭐</div>
+                    <h3>8+ yillik tajriba</h3>
+                    <p>Turli sohalarda faoliyat yurituvchi yuzlab korxonalarga xizmat ko'rsatgan tajribamiz bor.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">🔒</div>
+                    <h3>Maxfiylik</h3>
+                    <p>Sizning moliyaviy ma'lumotlaringiz to'liq himoyalangan. NDA shartnomasi imzolaymiz.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon">💎</div>
+                    <h3>Arzon narxlar</h3>
+                    <p>Sifatli xizmatni hamyonbop narxlarda taqdim etamiz. Yashirin to'lovlar yo'q.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FORM ===== -->
+    <section class="form-section" id="ariza">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-info">
+                    <span class="section-label">✦ Bog'lanish</span>
+                    <h2 class="section-title">Bepul konsultatsiya <br>oling</h2>
+                    <p>
+                        Arizangizni qoldiring — mutaxassislarimiz 1 ish kuni ichida siz bilan bog'lanadi va 
+                        sizning biznesingizga mos xizmatni taklif qiladi.
+                    </p>
+
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <strong>Telefon raqam</strong>
+                                <span>+998 90 123 45 67</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <strong>Elektron pochta</strong>
+                                <span>info@balansplus.uz</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <strong>Manzil</strong>
+                                <span>Toshkent sh., Amir Temur ko'ch. 1-uy</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div class="contact-text">
+                                <strong>Ish vaqti</strong>
+                                <span>Du–Ju: 09:00 – 18:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3>Ariza qoldirish</h3>
+                    <p>Maydonlarni to'ldiring va biz siz bilan bog'lanamiz</p>
+
+                    <form id="arizaForm" novalidate>
+                        <!-- Honeypot — robotlardan himoya -->
+                        <div class="hp-field" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Ismingiz <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Masalan: Sardor Karimov" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefon raqami <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+998 90 123 45 67" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Xizmat turi <span class="required">*</span></label>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value="" disabled selected>Xizmat turini tanlang</option>
+                                <option value="soliq-hisobotlari">Soliq hisobotlari</option>
+                                <option value="ish-haqi-hisobi">Ish haqi hisobi</option>
+                                <option value="toliq-buxgalteriya">To'liq buxgalteriya yuritish</option>
+                                <option value="yatt-royxatdan-otkazish">YaTT ro'yxatdan o'tkazish</option>
+                                <option value="soliq-auditi">Soliq auditi</option>
+                                <option value="konsalting">Konsalting xizmatlari</option>
+                                <option value="boshqa">Boshqa</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Izoh yoki savol</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Qo'shimcha ma'lumot yoki savolingizni yozing..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit">Arizani yuborish →</button>
+                        <p class="form-note">🔒 Ma'lumotlaringiz maxfiy saqlanadi</p>
+                    </form>
+
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon">✅</div>
+                        <h4>Arizangiz qabul qilindi!</h4>
+                        <p>Mutaxassislarimiz 1 ish kuni ichida siz bilan bog'lanadi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">B+</div>
+                        Balans<span>Plus</span>
+                    </a>
+                    <p>Kichik biznes va YaTTlar uchun ishonchli buxgalteriya hamkori. Biznesingizni rivojlantiring — moliyaviy ishlarni bizga ishoning.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Xizmatlar</h4>
+                    <ul>
+                        <li><a href="#xizmatlar">Soliq hisobotlari</a></li>
+                        <li><a href="#xizmatlar">Ish haqi hisobi</a></li>
+                        <li><a href="#xizmatlar">To'liq buxgalteriya</a></li>
+                        <li><a href="#xizmatlar">Konsalting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kompaniya</h4>
+                    <ul>
+                        <li><a href="#nega-biz">Biz haqimizda</a></li>
+                        <li><a href="#nega-biz">Nega biz?</a></li>
+                        <li><a href="#ariza">Bog'lanish</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Aloqa</h4>
+                    <ul>
+                        <li><a href="tel:+998901234567">+998 90 123 45 67</a></li>
+                        <li><a href="mailto:info@balansplus.uz">info@balansplus.uz</a></li>
+                        <li><a href="#">Toshkent shahri</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Balans Plus. Barcha huquqlar himoyalangan.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Telegram">✈</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-link" aria-label="Facebook">f</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ===== MOBILE MENU =====
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ===== PHONE INPUT FORMATTING =====
+        const phoneInput = document.getElementById('phone');
+
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/[^\d+]/g, '');
+
+            if (!value.startsWith('+998')) {
+                if (value.startsWith('+')) {
+                    value = '+998' + value.slice(1).replace(/\+/g, '');
+                } else {
+                    value = '+998' + value.replace(/\+/g, '');
+                }
+            }
+
+            // Raqamlarni formatlash: +998 XX XXX XX XX
+            const digits = value.slice(4).replace(/\D/g, '');
+            let formatted = '+998';
+            if (digits.length > 0) formatted += ' ' + digits.slice(0, 2);
+            if (digits.length > 2) formatted += ' ' + digits.slice(2, 5);
+            if (digits.length > 5) formatted += ' ' + digits.slice(5, 7);
+            if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
+
+            e.target.value = formatted;
+        });
+
+        phoneInput.addEventListener('focus', (e) => {
+            if (!e.target.value) {
+                e.target.value = '+998 ';
+            }
+        });
+
+        // ===== FORM VALIDATION & SUBMIT =====
+        const form = document.getElementById('arizaForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Honeypot tekshiruvi
+            const honeypot = document.getElementById('website');
+            if (honeypot.value) {
+                return; // Robot aniqlandi
+            }
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+
+            // Validatsiya
+            let isValid = true;
+
+            if (!name || name.length < 2) {
+                highlightError('name');
+                isValid = false;
+            } else {
+                clearError('name');
+            }
+
+            const phoneDigits = phone.replace(/\D/g, '');
+            if (phoneDigits.length !== 12) {
+                highlightError('phone');
+                isValid = false;
+            } else {
+                clearError('phone');
+            }
+
+            if (!service) {
+                highlightError('service');
+                isValid = false;
+            } else {
+                clearError('service');
+            }
+
+            if (!isValid) return;
+
+            // Tugmani bloklash
+            const submitBtn = form.querySelector('.form-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Yuborilmoqda...';
+
+            try {
+                const response = await fetch('/api/ariza', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        service,
+                        message: document.getElementById('message').value.trim(),
+                        honeypot: honeypot.value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    form.style.display = 'none';
+                    formSuccess.classList.add('active');
+                } else {
+                    alert(data.error || 'Xatolik yuz berdi. Qayta urinib ko\'ring.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Arizani yuborish →';
+                }
+            } catch (err) {
+                alert('Serverga ulanib bo\'lmadi. Internet aloqangizni tekshiring.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Arizani yuborish →';
+            }
+        });
+
+        function highlightError(id) {
+            const el = document.getElementById(id);
+            el.style.borderColor = '#ef4444';
+            el.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.15)';
+        }
+
+        function clearError(id) {
+            const el = document.getElementById(id);
+            el.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+            el.style.boxShadow = 'none';
+        }
+
+        // Xatolikni kiritish paytida tozalash
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('input', () => {
+                clearError(input.id);
+            });
+        });
+
+        // ===== SMOOTH REVEAL ANIMATION =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .why-card, .form-card, .form-info').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>

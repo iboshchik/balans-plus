@@ -1,0 +1,9 @@
+# Environment variables (xavfsizlik uchun maxfiy kalitlar)
+.env
+
+# Dependencies
+node_modules/
+
+# OS files
+Thumbs.db
+.DS_Store
