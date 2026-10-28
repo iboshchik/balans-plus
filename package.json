@@ -1,0 +1,9 @@
+{
+  "name": "balans-plus",
+  "version": "1.0.0",
+  "description": "Balans Plus — Buxgalteriya xizmatlari landing page",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
